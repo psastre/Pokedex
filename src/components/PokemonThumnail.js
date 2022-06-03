@@ -1,18 +1,15 @@
 import React from 'react'
 
 
-function PokemonThumnail({id, name, image, type}) {
-    const style= type + " thumb-container"
+function PokemonThumnail({key,id, name, image, type, detailToggle, detailSelect}) {
+
+         
+   
   return (
-    <div className={style}>
-        <div className="number">
-            <small>#0{id}</small>
-        </div>
+    <div className=" thumb-container" onClick={()=>{detailToggle(); detailSelect(id)}} >
+        
         <img className="image-pokemon" src={image} alt={name} />
-        <div className="detail-wrapper">
-            <h3>{name}</h3>
-            <small>Type: {type}</small>
-        </div>
+        
     </div>
   )
 }
