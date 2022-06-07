@@ -2,16 +2,20 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import React, { useEffect, useState } from 'react'
 import PokemonThumnail from './components/PokemonThumnail'
 import PokemonDetail  from './components/PokemonDetail'
+import Loading from './components/Loading'
+import Animate from './animateScroll'
 
 import pokeImg from "./images/pokedex.png"
 
 
 
 function App() {
+
+ 
   //RANDOM NUMBER LOGIC
 
     const randomNumberMax = Math.floor(Math.random() * (120- 20 + 1) + 20)
-    const api= `http://pokeapi.co/api/v2/pokemon?limit=20&offset=${randomNumberMax}`
+    const api= `http://pokeapi.co/api/v2/pokemon?limit=150&offset=1`
   
  
 
@@ -20,6 +24,7 @@ function App() {
   const [loadMore, setLoadMore] = useState(api)
   const [detailSection, setdetailSection] = useState(false)
   const [detailSelection, setDetailSelection] = useState()
+  const [loadingScreen, setLoadingScreen] = useState(true)
 
 
 
@@ -97,6 +102,7 @@ function App() {
   const results = await Promise.all(promises)
   setAllPokemons(results)
    
+  setLoadingScreen(false)
   }
   
   
@@ -106,12 +112,13 @@ function App() {
   useEffect(()=>{
     
     getAllPokemons()
+    Animate()
     
   },[])
 
   return (
-    <div>
-    
+    <div className='main'>
+    {loadingScreen && <Loading loadingScreen={loadingScreen}/>}
 
     
     <div className='cursor' style={cursorStyle}> <img src={pokeImg} alt="" /> </div>
@@ -142,6 +149,7 @@ function App() {
       
       
     </div>
+    
     </div>
   );
 }

@@ -6,10 +6,23 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   cursor: none;
-  overflow: hidden;
-  background-image: url("./images/pokeforest2.PNG");
+ overflow-y: hidden;
+  background-color: #E0F1FD;
   z-index: 0;
   
+}
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+
+::-webkit-scrollbar-track {
+  background: rgba(240, 248, 255, 0.1); 
+}
+ 
+
+::-webkit-scrollbar-thumb {
+  background: rgba(136, 136, 136, 0.5); 
 }
 
 code {
@@ -18,6 +31,9 @@ code {
 }
 .rock {
   background-color: rgba(148, 81, 81,0.863);
+}
+.fighting {
+  background-color: rgba(92, 92, 92, 0.863);
 }
 .ghost {
   background-color: rgba(247, 247, 247,0.863);
@@ -46,7 +62,11 @@ code {
 .water {
   background-color:rgba(224, 241, 253,0.863);
 }
-
+main{
+  width:100%;
+  height: 100vh;
+  overflow: hidden;
+}
 .app-container {
   display: flex;
   flex-direction: column;
@@ -54,7 +74,9 @@ code {
   justify-content: center;
   min-height: 100vh;
   padding: 0rem 0.5rem;
-  
+  width: 350%;
+  background: rgb(107,210,193);
+  background: linear-gradient(90deg, rgba(107,210,193,1) 0%, rgba(174,236,226,1) 14%, rgba(236,236,236,1) 34%);
 }
 .pokemon-container {
   display: flex;
@@ -67,6 +89,10 @@ code {
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
+  /*height: 100%;
+      width: 33%;*/
+      
+      
 }
 .thumb-container {
   display: flex;
@@ -81,6 +107,8 @@ code {
  
   width: 50px;
   z-index: 1;
+  opacity: 0;
+  
   
   
   
@@ -188,8 +216,8 @@ h3 {
 .text-detail{
   position: absolute;
   top: 111px;
-  left: 355px;
-  width: 202px;
+  left: 394px;
+  width: 156px;
   height: 100px;
   
  
