@@ -13,7 +13,7 @@ const PokemonDetail = ({ detailSelection, allPokemons, cursorStyle, }) => {
 
         <div className={stylee}>
             
-            <img src={allPokemons[detailSelection].sprites.other.dream_world.front_default} alt="" />
+            <img src={allPokemons[detailSelection].sprites.other.dream_world.front_default} alt={allPokemons[detailSelection].name} />
         </div>
         <div className="text-detail">
             <ul>

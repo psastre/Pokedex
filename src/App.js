@@ -15,7 +15,7 @@ function App() {
   //RANDOM NUMBER LOGIC
 
     const randomNumberMax = Math.floor(Math.random() * (120- 20 + 1) + 20)
-    const api= `http://pokeapi.co/api/v2/pokemon?limit=150&offset=1`
+    const api= `http://pokeapi.co/api/v2/pokemon?limit=150&offset=0`
   
  
 
@@ -82,12 +82,6 @@ function App() {
   const getAllPokemons = async()=>{
     const res = await fetch(loadMore)
     const data =  await res.json()
-   
-    
-
-  
-
-  
 
   setLoadMore(data.next)
 
